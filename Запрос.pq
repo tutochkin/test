@@ -19,7 +19,7 @@ let
             pr = Table.PromoteHeaders(tbl),
             oldnms = List.Transform(List.Skip(Table.ColumnNames(pr)),f),
             newnms = List.Transform(List.Zip({oldnms,nms}),(x)=>Text.Combine(x," ")),
-            ren = List.Zip({List.Skip(Table.ColumnNames(pr)),newnms}),
+            ren = List.Zip({List.Skip(Table.ColumnNames(pr)),oldnms}),
             to = Table.RenameColumns(pr,ren)][to],
 
     csv=(file)=>
